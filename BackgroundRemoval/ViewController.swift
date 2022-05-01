@@ -10,6 +10,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
 
+    @IBOutlet private weak var outputView: UIView!
     @IBOutlet private weak var captureView: UIView!
     @IBOutlet private weak var filterImageView: UIImageView!
     
@@ -50,7 +51,6 @@ class ViewController: UIViewController {
         
         session.commitConfiguration()
         
-        
         previewLayer = AVCaptureVideoPreviewLayer(session: session)
         previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
@@ -62,6 +62,24 @@ class ViewController: UIViewController {
         rootLayer.addSublayer(previewLayer)
     }
     
+    @IBAction func colorPickerButtonClicked(_ sender: Any) {
+        let colorPickerVC = UIColorPickerViewController()
+        colorPickerVC.delegate = self
+        present(colorPickerVC, animated: true, completion: nil)
+    }
+    
+}
+
+extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        guard let filterImage = getFilterImage(sampleBuffer: sampleBuffer) else { return }
+        DispatchQueue.main.async { [weak self] in
+            self?.filterImageView.image = filterImage
+        }
+    }
+}
+
+extension ViewController {
     func getFilterImage(sampleBuffer: CMSampleBuffer) -> UIImage? {
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return nil }
         let ciimage = CIImage(cvPixelBuffer: pixelBuffer).oriented(.right)
@@ -71,15 +89,11 @@ class ViewController: UIViewController {
         guard let out_p1 = result?.out_p0, let output = UIImage(pixelBuffer: out_p1) else { return nil }
         return output
     }
-
-
 }
 
-extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        guard let filterImage = getFilterImage(sampleBuffer: sampleBuffer) else { return }
-        DispatchQueue.main.async { [weak self] in
-            self?.filterImageView.image = filterImage
-        }
+extension ViewController: UIColorPickerViewControllerDelegate {
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        let color = viewController.selectedColor
+        outputView.backgroundColor = color
     }
 }

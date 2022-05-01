@@ -51,43 +51,47 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNH-Rj-2NX">
-                                <rect key="frame" x="12" y="814" width="390" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="05j-BC-ub5"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Capture"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diQ-gJ-Taf">
-                                <rect key="frame" x="12" y="771" width="390" height="31"/>
+                                <rect key="frame" x="297" y="816.5" width="105" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="0nt-LS-ggg"/>
+                                    <constraint firstAttribute="height" constant="31" id="Sjd-RX-p8T"/>
+                                    <constraint firstAttribute="width" constant="105" id="fyw-b9-Jvl"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Color Picker"/>
+                                <connections>
+                                    <action selector="colorPickerButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OYe-dX-xns"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNH-Rj-2NX">
+                                <rect key="frame" x="162" y="814" width="90" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="Yiw-x0-49v"/>
+                                    <constraint firstAttribute="width" constant="90" id="msG-oM-cWi"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Capture"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="diQ-gJ-Taf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="9lR-FS-DT5"/>
                             <constraint firstItem="Gag-nU-3Wa" firstAttribute="top" secondItem="pkZ-96-QON" secondAttribute="bottom" constant="12" id="B1D-qh-iyQ"/>
-                            <constraint firstItem="YNH-Rj-2NX" firstAttribute="top" secondItem="diQ-gJ-Taf" secondAttribute="bottom" constant="12" id="GDP-7n-y5H"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YNH-Rj-2NX" secondAttribute="trailing" constant="12" id="T9e-kd-d9M"/>
-                            <constraint firstItem="YNH-Rj-2NX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="T9t-x6-HqC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="diQ-gJ-Taf" secondAttribute="trailing" constant="12" id="Ho1-GL-ZYT"/>
                             <constraint firstItem="pkZ-96-QON" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Yoj-Nn-9Dt"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="diQ-gJ-Taf" secondAttribute="trailing" constant="12" id="cHS-kt-7bk"/>
                             <constraint firstItem="Gag-nU-3Wa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="cI7-RP-p6Y"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YNH-Rj-2NX" secondAttribute="bottom" constant="12" id="dAh-Qs-Qcv"/>
                             <constraint firstItem="pkZ-96-QON" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fYB-la-19J"/>
+                            <constraint firstItem="YNH-Rj-2NX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oGW-yg-wOa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YNH-Rj-2NX" secondAttribute="bottom" constant="12" id="oOY-de-Zgp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pkZ-96-QON" secondAttribute="trailing" id="oq3-5Y-Tnn"/>
+                            <constraint firstItem="diQ-gJ-Taf" firstAttribute="centerY" secondItem="YNH-Rj-2NX" secondAttribute="centerY" id="vod-9F-8ae"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Gag-nU-3Wa" secondAttribute="trailing" constant="12" id="w5v-5H-fDG"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="captureView" destination="GRt-yb-jh0" id="l7D-gx-js3"/>
                         <outlet property="filterImageView" destination="3fd-xo-XYc" id="2fI-Nd-fFB"/>
+                        <outlet property="outputView" destination="pkZ-96-QON" id="QNe-mZ-HbQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
