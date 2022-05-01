@@ -35,9 +35,18 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2HJ-TF-DD3">
                                         <rect key="frame" x="201" y="0.0" width="189" height="189"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3fd-xo-XYc">
+                                                <rect key="frame" x="0.0" y="0.0" width="189" height="189"/>
+                                            </imageView>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                         <constraints>
+                                            <constraint firstItem="3fd-xo-XYc" firstAttribute="top" secondItem="2HJ-TF-DD3" secondAttribute="top" id="GOR-y0-iRY"/>
+                                            <constraint firstAttribute="trailing" secondItem="3fd-xo-XYc" secondAttribute="trailing" id="bf4-Au-SFd"/>
                                             <constraint firstAttribute="width" secondItem="2HJ-TF-DD3" secondAttribute="height" multiplier="1:1" id="hLX-bb-xHX"/>
+                                            <constraint firstItem="3fd-xo-XYc" firstAttribute="leading" secondItem="2HJ-TF-DD3" secondAttribute="leading" id="l6D-tB-VXI"/>
+                                            <constraint firstAttribute="bottom" secondItem="3fd-xo-XYc" secondAttribute="bottom" id="t5r-KS-4TK"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -76,6 +85,10 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Gag-nU-3Wa" secondAttribute="trailing" constant="12" id="w5v-5H-fDG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="captureView" destination="GRt-yb-jh0" id="l7D-gx-js3"/>
+                        <outlet property="filterImageView" destination="3fd-xo-XYc" id="2fI-Nd-fFB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

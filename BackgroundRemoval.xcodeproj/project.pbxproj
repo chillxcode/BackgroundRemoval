@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		265DCA8D281F328E000AB19F /* u2netp.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 265DCA8C281F328E000AB19F /* u2netp.mlmodel */; };
+		265DCA90281F34BA000AB19F /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265DCA8F281F34BA000AB19F /* UIImage+Extension.swift */; };
 		267013C0281F2C6F00EEA47C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267013BF281F2C6F00EEA47C /* AppDelegate.swift */; };
 		267013C2281F2C6F00EEA47C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267013C1281F2C6F00EEA47C /* SceneDelegate.swift */; };
 		267013C4281F2C6F00EEA47C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267013C3281F2C6F00EEA47C /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		265DCA8C281F328E000AB19F /* u2netp.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = u2netp.mlmodel; sourceTree = "<group>"; };
+		265DCA8F281F34BA000AB19F /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		267013BC281F2C6F00EEA47C /* BackgroundRemoval.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackgroundRemoval.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		267013BF281F2C6F00EEA47C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		267013C1281F2C6F00EEA47C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		265DCA8E281F34A8000AB19F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				265DCA8F281F34BA000AB19F /* UIImage+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		267013B3281F2C6F00EEA47C = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +76,7 @@
 		267013BE281F2C6F00EEA47C /* BackgroundRemoval */ = {
 			isa = PBXGroup;
 			children = (
+				265DCA8E281F34A8000AB19F /* Extension */,
 				265DCA8B281F3287000AB19F /* Model */,
 				267013BF281F2C6F00EEA47C /* AppDelegate.swift */,
 				267013C1281F2C6F00EEA47C /* SceneDelegate.swift */,
@@ -151,6 +162,7 @@
 			files = (
 				265DCA8D281F328E000AB19F /* u2netp.mlmodel in Sources */,
 				267013C4281F2C6F00EEA47C /* ViewController.swift in Sources */,
+				265DCA90281F34BA000AB19F /* UIImage+Extension.swift in Sources */,
 				267013C0281F2C6F00EEA47C /* AppDelegate.swift in Sources */,
 				267013C2281F2C6F00EEA47C /* SceneDelegate.swift in Sources */,
 			);
