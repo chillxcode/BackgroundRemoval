@@ -11,6 +11,7 @@ import AVFoundation
 class ViewController: UIViewController {
 
     @IBOutlet private weak var outputView: UIView!
+    @IBOutlet private weak var outputImageView: UIImageView!
     @IBOutlet private weak var captureView: UIView!
     @IBOutlet private weak var filterImageView: UIImageView!
     
@@ -75,6 +76,12 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         guard let filterImage = getFilterImage(sampleBuffer: sampleBuffer) else { return }
         DispatchQueue.main.async { [weak self] in
             self?.filterImageView.image = filterImage
+            
+            guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+            let ciimage = CIImage(cvPixelBuffer: pixelBuffer).oriented(.right)
+            guard let image = UIImage(ciImage: ciimage).resizedCroppedImage(newSize: CGSize(width: 320, height: 320)) else { return }
+            guard let maskedImage = image.maskImage(withMask: filterImage.invertedImage() ?? filterImage) else { return }
+            self?.outputImageView.image = maskedImage
         }
     }
 }

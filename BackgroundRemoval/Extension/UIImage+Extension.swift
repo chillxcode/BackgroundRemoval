@@ -74,4 +74,36 @@ extension UIImage {
         guard let cgImage = cgImage else { return nil }
         self.init(cgImage: cgImage)
     }
+    
+    func maskImage(withMask maskImage: UIImage) -> UIImage? {
+        guard let maskRef = maskImage.cgImage else { return nil }
+
+        let mask = CGImage(
+            maskWidth: maskRef.width,
+            height: maskRef.height,
+            bitsPerComponent: maskRef.bitsPerComponent,
+            bitsPerPixel: maskRef.bitsPerPixel,
+            bytesPerRow: maskRef.bytesPerRow,
+            provider: maskRef.dataProvider!,
+            decode: nil,
+            shouldInterpolate: false)!
+        
+        guard let maskSelf = self.cgImage else { return nil }
+        guard let masked = maskSelf.masking(mask) else { return nil }
+        let maskedImage = UIImage(cgImage: masked)
+        return maskedImage
+
+    }
+    
+    func invertedImage() -> UIImage? {
+        guard let cgImage = self.cgImage else { return nil }
+        let ciImage = CoreImage.CIImage(cgImage: cgImage)
+        guard let filter = CIFilter(name: "CIColorInvert") else { return nil }
+        filter.setDefaults()
+        filter.setValue(ciImage, forKey: kCIInputImageKey)
+        let context = CIContext(options: nil)
+        guard let outputImage = filter.outputImage else { return nil }
+        guard let outputImageCopy = context.createCGImage(outputImage, from: outputImage.extent) else { return nil }
+        return UIImage(cgImage: outputImageCopy, scale: self.scale, orientation: .up)
+    }
 }

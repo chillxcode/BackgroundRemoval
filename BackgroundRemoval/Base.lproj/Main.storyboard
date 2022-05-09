@@ -18,9 +18,18 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkZ-96-QON">
                                 <rect key="frame" x="0.0" y="60" width="414" height="414"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Ho-gN-apj">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pkZ-96-QON" secondAttribute="height" multiplier="1:1" id="5Vt-mC-kpL"/>
+                                    <constraint firstItem="0Ho-gN-apj" firstAttribute="leading" secondItem="pkZ-96-QON" secondAttribute="leading" id="WDj-fA-5Zl"/>
+                                    <constraint firstItem="0Ho-gN-apj" firstAttribute="top" secondItem="pkZ-96-QON" secondAttribute="top" id="bdh-14-3kk"/>
+                                    <constraint firstAttribute="bottom" secondItem="0Ho-gN-apj" secondAttribute="bottom" id="gge-Rd-iYq"/>
+                                    <constraint firstAttribute="trailing" secondItem="0Ho-gN-apj" secondAttribute="trailing" id="vra-ED-FAs"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Gag-nU-3Wa">
@@ -91,6 +100,7 @@
                     <connections>
                         <outlet property="captureView" destination="GRt-yb-jh0" id="l7D-gx-js3"/>
                         <outlet property="filterImageView" destination="3fd-xo-XYc" id="2fI-Nd-fFB"/>
+                        <outlet property="outputImageView" destination="0Ho-gN-apj" id="b7U-LM-FHY"/>
                         <outlet property="outputView" destination="pkZ-96-QON" id="QNe-mZ-HbQ"/>
                     </connections>
                 </viewController>
